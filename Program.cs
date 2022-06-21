@@ -1,8 +1,10 @@
+using HealthCheckAPI;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddHealthChecks();
+builder.Services.AddHealthChecks().AddCheck<ICMPHealthCheck>("ICMP"); 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
